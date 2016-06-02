@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ build.xml
+ gaia-sl-tapcds  -  TAP service from CDS
+-->
+
+<project name="ci-example" default="test" xmlns:cl="antlib:net.jtools.classloadertask" basedir=".">
+
+	<property name="src" value="./src"/>
+	<property name="lib" value="./lib"/>
+	<property name="classes" value="./classes"/>
+	<property name="test.class.name" value="TestHelloWorld"/>
+
+	<path id="test.classpath">
+		<pathelement location="${classes}"/>
+		<pathelement location="/home/jsegovia/download/junit/junit.jar"/>
+		<fileset dir="${lib}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="test">
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test.class.name}"/>
+			<formatter type="plain" usefile="false"/>
+			<classpath refid="test.classpath"/>
+		</junit>
+	</target>
+	
+</project>

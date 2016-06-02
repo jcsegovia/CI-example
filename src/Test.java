@@ -1,8 +1,12 @@
+import org.junit.Assert;
 
 public class Test {
 	
-	public static void main(String[] args){
-		System.out.println("Hola");
+	@org.junit.Test
+	public void test1(){
+		HelloWorld hw = new HelloWorld();
+		hw.setMsg("Hola");
+		Assert.assertEquals("Hola", hw.getMsg());
 	}
 
 }
